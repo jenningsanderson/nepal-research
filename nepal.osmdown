@@ -14,7 +14,7 @@ Analysis & Visualization of HOT & OpenStreetMap response to the April 25 Earthqu
 
 #Users
 ```
-var baseurl = '/Users/robertsoden/www/osmdown/examples/nepal-earthquake/'
+var baseurl = '/Users/robertsoden/www/osmdown/examples/nepal-earthquake'
 var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
 var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 ```
