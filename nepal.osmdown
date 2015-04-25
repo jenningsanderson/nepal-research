@@ -28,7 +28,7 @@ userList.forEach(function(user){
 	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
 })
 ```
-
+{{ osmviz.table(userTable, ops) }}
 
 
 #Tags
