@@ -4,23 +4,23 @@ title: 'OSM Reponse to Nepal Earthquake'
 ###Analysis Window Information
 
 ###Where the data live
-baseurl: '../'
+baseurl: '/Users/robertsoden/www/osmdown/'
 www: '/data/www/nepal'
 ---
 
 
 #Users
 ```
-var experienced_mappers = _.values(osmdata('/data/www/nepal/json/experienced_user_count.json'))[0]
-
-var new_mappers = _.values(osmdata('/data/www/nepal/json/new_user_count.json'))[0]
+var baseurl = '/Users/robertsoden/www/osmdown/examples/nepal-earthquake/'
+var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
+var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 ```
 
 ###New Mappers: {{ new_mappers }}
 ###Experienced Mappers: {{ experienced_mappers }}
 
 ```
-var userList = osmdata('/data/www/nepal/json/user_list.json')
+var userList = osmdata(baseurl + 'json/user_list.json')
 var userTable = []
 var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
 
@@ -35,7 +35,7 @@ userList.forEach(function(user){
 #Tags
 
 ```
-var highways_per_tag = osmdata('/data/www/nepal/json/number_of_highways_per_tag.json')
+var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
 
 var tableMe = []
 var options = {headers:['Tag', 'Count']}
