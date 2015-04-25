@@ -25,7 +25,7 @@ var userTable = []
 var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
 
 userList.forEach(function(user){
-	userTable.push([user.user, user.nodes. user.ways, user.relations, user.changesets])
+	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
 })
 ```
 
