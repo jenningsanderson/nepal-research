@@ -8,6 +8,9 @@ baseurl: '/Users/robertsoden/www/osmdown/'
 www: '/data/www/nepal'
 ---
 
+Analysis & Visualization of HOT & OpenStreetMap response to the April 25 Earthquake in Nepal
+======================================
+[http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake](http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake)
 
 #Users
 ```
@@ -31,9 +34,6 @@ userList.forEach(function(user){
 
 {{ osmviz.table(userTable, ops) }}
 
-
-#Tags
-
 ```
 var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
 
@@ -44,5 +44,7 @@ highways_per_tag.forEach(function(d){
 })
 ```
 
-##Highway Tags
+#Changesets
+
+##Highways: 
 {{ osmviz.table(tableMe, options) }}
