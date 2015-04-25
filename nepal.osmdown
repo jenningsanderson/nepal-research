@@ -19,16 +19,28 @@ var new_mappers = _.values(osmdata('/data/www/nepal/json/new_user_count.json'))[
 ##New Mappers: {{ new_mappers }}
 
 ##Experienced Mappers: {{ experienced_mappers }}
+```
+var userList = osmdata('/data/www/nepal/json/user_list.json')
+var userTable = []
+var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]
+
+userList.forEach(function(user){
+	userTable.push([user.user, user.nodes. user.ways, user.relations, user.changesets])
+})
+```
+
+
 
 #Tags
 ```
 var highways_per_tag = osmdata('/data/www/nepal/json/number_of_highways_per_tag.json')
 
 var tableMe = []
-var options = {headers:['tag', 'count']}
+var options = {headers:['Tag', 'Count']}
 highways_per_tag.forEach(function(d){
 	tableMe.push([d.tag, d.count])
 })
 ```
 
+##Highway Tags
 {{ osmviz.table(tableMe, options) }}
