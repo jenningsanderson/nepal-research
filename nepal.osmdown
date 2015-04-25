@@ -25,7 +25,7 @@ var new_mappers = _.values(osmdata('/data/www/nepal/json/new_user_count.json'))[
 var highways_per_tag = osmdata('/data/www/nepal/json/number_of_highways_per_tag')
 
 var tableMe = []
-var options: {headers:['tag', 'count']}
+var options = {headers:['tag', 'count']}
 highways_per_tag.forEach(function(d){
 	tableMe.push([d.tag, d.count])
 })
