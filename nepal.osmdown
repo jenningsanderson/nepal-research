@@ -4,7 +4,7 @@ title: 'Nepal Earthquake'
 ###Analysis Window Information
 
 ###Where the data live
-baseurl: '/Users/robertsoden/www/osmdown/'
+baseurl: '../'
 www: '/data/www/nepal'
 ---
 
@@ -14,7 +14,7 @@ Background: [http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake](http://wi
 
 #User Contributions
 ```
-var baseurl = '/Users/robertsoden/www/osmdown/examples/nepal-earthquake/'
+var baseurl = '/data/www/nepal/'
 var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
 var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 ```
