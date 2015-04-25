@@ -1,6 +1,6 @@
 ---
 ###Project Information
-title: 'Nepal Earthquake - OpenStreetMap Response'
+title: 'OSM Reponse to Nepal Earthquake'
 ###Analysis Window Information
 
 ###Where the data live
@@ -19,3 +19,16 @@ var new_mappers = _.values(osmdata('/data/www/nepal/json/new_user_count.json'))[
 ##New Mappers: {{ new_mappers }}
 
 ##Experienced Mappers: {{ experienced_mappers }}
+
+#Tags
+```
+var highways_per_tag = osmdata('/data/www/nepal/json/number_of_highways_per_tag')
+
+var tableMe = []
+var options: {headers:['tag', 'count']}
+highways_per_tag.forEach(function(d){
+	tableMe.push([d.tag, d.count])
+})
+```
+
+{{ osmviz.table(tableMe, options) }}
