@@ -1,6 +1,6 @@
 ---
 ###Project Information
-title: 'OSM Reponse to Nepal Earthquake'
+title: 'Nepal Earthquake'
 ###Analysis Window Information
 
 ###Where the data live
@@ -19,7 +19,7 @@ var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_coun
 var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 ```
 
-New Mappers: {{ new_mappers }} Experienced Mappers: {{ experienced_mappers }}
+New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
 
 ```
 var userList = osmdata(baseurl + 'json/user_list.json')
