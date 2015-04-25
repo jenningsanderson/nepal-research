@@ -22,7 +22,7 @@ var new_mappers = _.values(osmdata('/data/www/nepal/json/new_user_count.json'))[
 ```
 var userList = osmdata('/data/www/nepal/json/user_list.json')
 var userTable = []
-var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]
+var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
 
 userList.forEach(function(user){
 	userTable.push([user.user, user.nodes. user.ways, user.relations, user.changesets])
