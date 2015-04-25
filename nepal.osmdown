@@ -1,0 +1,39 @@
+---
+###Project Information
+title: 'Nepal Earthquake - OpenStreetMap Response'
+###Analysis Window Information
+
+###Where the data live
+baseurl: '../'
+www: '/data/www/nepal'
+---
+
+
+#Users
+```
+var experienced_mappers = _.values(osmdata('/data/www/nepal/json/experienced_user_count.json'))[0]
+
+var new_mappers = _.values(osmdata('/data/www/nepal/json/new_user_count.json'))[0]
+```
+
+#Summary
+{{ osmviz.block('summary') }}
+
+#Changesets
+{{ osmviz.block('changesets') }}
+
+```
+var changesetsByExpMappers = _.values(osmdata('/data/www/boulder/json/number_of_changesets_by_experienced_mappers.json'))[0]
+
+var changesetsByNewMappers = _.values(osmdata('/data/www/boulder/json/number_of_changesets_by_new_mappers.json'))[0]
+
+var avgChangesetsPerMapper = osmdata('/data/www/boulder/json/mean_changesets_per_mapper.json')["Mean Changesets Per Mapper"].toFixed(2)
+```
+
+Experienced users contributed {{ changesetsByExpMappers }} changesets while new mappers created {{ changesetsByNewMappers }} changesets.
+
+There is an average of {{ avgChangesetsPerMapper }} changesets per mapper.
+
+#Tags
+
+{{ osmviz.block('tags')}}
