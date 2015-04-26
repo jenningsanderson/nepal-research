@@ -35,8 +35,11 @@ userList.forEach(function(user){
 
 {{osmviz.map('user_contributions', {name: "UserContributions", height: 400, width: 600}) }}
 
+```
+//Code block here keeps it from breaking... dont' know why
+```
+
 #HOT Task Tag Counts
-##Highways
 ```
 var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
 
@@ -46,10 +49,11 @@ highways_per_tag.forEach(function(d){
 	tableMe.push([d.tag, d.count])
 })
 ```
+
+##Highways
+
 {{ osmviz.table(tableMe, options) }}
 
-
-##Buildings
 ```
 var buildings_per_tag = osmdata(baseurl + 'json/number_of_buildings_per_tag.json')
 
@@ -59,4 +63,7 @@ buildings_per_tag.forEach(function(d){
 	tableMe.push([d.tag, d.count])
 })
 ```
+
+##Buildings
+
 {{ osmviz.table(tableMe, options) }}
