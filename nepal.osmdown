@@ -50,9 +50,9 @@ highways_per_tag.forEach(function(d){
 })
 ```
 
-##Highways
-
+<div style="display:inline-block;"><h2>Highways</h2>
 {{ osmviz.table(tableMe, options) }}
+</div>
 
 ```
 var buildings_per_tag = osmdata(baseurl + 'json/number_of_buildings_per_tag.json')
@@ -63,7 +63,21 @@ buildings_per_tag.forEach(function(d){
 	tableMe.push([d.tag, d.count])
 })
 ```
-
-##Buildings
-
+<div style="display:inline-block;"><h2>Buildings</h2>
 {{ osmviz.table(tableMe, options) }}
+</div>
+
+```
+var changesets_per_tag = osmdata(baseurl + 'json/number_of_changesets_per_tag.json')
+
+var tableMe = []
+var options = {headers:['Tag', 'Count']}
+changesets_per_tag.forEach(function(d){
+	tableMe.push([d.tag, d.count])
+})
+```
+<div style="display:inline-block;"><h2>Total Changesets</h2>
+{{ osmviz.table(tableMe, options) }}
+</div>
+
+number_of_changesets_per_tag.json 
