@@ -36,7 +36,8 @@ userList.forEach(function(user){
 {{osmviz.map('user_contributions', {name: "UserContributions", height: 400, width: 600}) }}
 
 
-##Highways: 
+##Highways
+
 ```
 var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
 
@@ -49,7 +50,8 @@ highways_per_tag.forEach(function(d){
 {{ osmviz.table(tableMe, options) }}
 
 
-##Buildings: 
+##Buildings
+
 ```
 var buildings_per_tag = osmdata(baseurl + 'json/number_of_buildings_per_tag.json')
 
