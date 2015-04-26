@@ -10,11 +10,51 @@ www: '/data/www/nepal'
 
 OpenStreetMap response to the April 25 Earthquake in Nepal
 ======================================
+
 {{ osmviz.block('nepal_overview', options) }}
+
+```
+var baseurl = '/data/www/nepal/'
+var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
+
+// Highways
+var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
+var totalHighways = 0
+var highwayTable = []
+var options = {headers:['Tag', 'Count']}
+highways_per_tag.forEach(function(d){
+	highwayTable.push([d.tag, d.count])
+	totalHighways = totalHighways + d.count
+})
+
+// Buildings
+var buildings_per_tag = osmdata(baseurl + 'json/number_of_buildings_per_tag.json')
+
+var buildingsTable = []
+var buildingCount = 0
+var options = {headers:['Tag', 'Count']}
+buildings_per_tag.forEach(function(d){
+	buildingsTable.push([d.tag, d.count])
+	buildingCount = buildingCount + d.count
+})
+
+// Changesets
+var changesets_per_tag = osmdata(baseurl + 'json/number_of_changesets_per_tag.json')
+
+var changesetTable = []
+var changesetCount = 0
+var options = {headers:['Tag', 'Count']}
+changesets_per_tag.forEach(function(d){
+	changesetTable.push([d.tag, d.count])
+	changesetCount = changesetCount + d.count
+})
+```
+
+<p style="font-size:24px;"><strong>{{ total_mappers }}</strong> mappers have edited <strong>{{ totalHighways }}</strong> highways and <strong>{{ buildingCount }}</strong> buildings in <strong>{{ changesetCount }}</strong> changesets since April 25, 2015.</p>
+
 
 #User Contributions
 ```
-var baseurl = '/data/www/nepal/'
 var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
 var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 ```
@@ -40,44 +80,15 @@ userList.forEach(function(user){
 ```
 
 #HOT Task Tag Counts
-```
-var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
-
-var tableMe = []
-var options = {headers:['Tag', 'Count']}
-highways_per_tag.forEach(function(d){
-	tableMe.push([d.tag, d.count])
-})
-```
 
 <div style="display:inline-block;"><h2>Highways</h2>
-{{ osmviz.table(tableMe, options) }}
+{{ osmviz.table(highwayTable, options) }}
 </div>
 
-```
-var buildings_per_tag = osmdata(baseurl + 'json/number_of_buildings_per_tag.json')
-
-var tableMe = []
-var options = {headers:['Tag', 'Count']}
-buildings_per_tag.forEach(function(d){
-	tableMe.push([d.tag, d.count])
-})
-```
 <div style="display:inline-block;"><h2>Buildings</h2>
-{{ osmviz.table(tableMe, options) }}
+{{ osmviz.table(buildingsTable, options) }}
 </div>
 
-```
-var changesets_per_tag = osmdata(baseurl + 'json/number_of_changesets_per_tag.json')
-
-var tableMe = []
-var options = {headers:['Tag', 'Count']}
-changesets_per_tag.forEach(function(d){
-	tableMe.push([d.tag, d.count])
-})
-```
 <div style="display:inline-block;"><h2>Total Changesets</h2>
-{{ osmviz.table(tableMe, options) }}
+{{ osmviz.table(changesetTable, options) }}
 </div>
-
-number_of_changesets_per_tag.json 
