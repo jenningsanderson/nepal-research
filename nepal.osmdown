@@ -69,9 +69,10 @@ var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Change
 userList.forEach(function(user){
 	userTable.push(['<span onClick="showUserEdits(\''+user.user+'\')">'+user.user+'</span>', user.nodes, user.ways, user.relations, user.changesets])
 })
+ops.title="userTable"
 ```
 
-{{ osmviz.table(userTable, ops) }}
+{{ osmviz.table('full', userTable, ops) }}
 
 {{osmviz.map('user_contributions', {name: "UserContributions", height: 400, width: 600}) }}
 
@@ -81,14 +82,10 @@ userList.forEach(function(user){
 
 #HOT Task Tag Counts
 
-<div style="display:inline-block;"><h2>Highways</h2>
-{{ osmviz.table(highwayTable, options) }}
-</div>
-
-<div style="display:inline-block;"><h2>Buildings</h2>
-{{ osmviz.table(buildingsTable, options) }}
-</div>
-
-<div style="display:inline-block;"><h2>Total Changesets</h2>
-{{ osmviz.table(changesetTable, options) }}
+<div style="display:inline-block; margin:10px"><h2>Highways</h2>
+{{ osmviz.table('simple', highwayTable, options) }}
+</div><div style="display:inline-block; margin:10px;"><h2>Buildings</h2>
+{{ osmviz.table('simple', buildingsTable, options) }}
+</div><div style="display:inline-block; margin:10px;"><h2>Total Changesets</h2>
+{{ osmviz.table('simple', changesetTable, options) }}
 </div>
