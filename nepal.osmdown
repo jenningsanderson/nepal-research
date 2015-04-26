@@ -10,7 +10,7 @@ www: '/data/www/nepal'
 
 OpenStreetMap response to the April 25 Earthquake in Nepal
 ======================================
-Background: [http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake](http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake)
+{{ osmviz.block('nepal_overview', options) }}
 
 #User Contributions
 ```
