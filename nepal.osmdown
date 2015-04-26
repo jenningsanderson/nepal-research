@@ -27,11 +27,14 @@ var userTable = []
 var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
 
 userList.forEach(function(user){
-	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
+	userTable.push(['<span onClick="showUserEdits(\''+user.user+'\')">'+user.user+'</span>', user.nodes, user.ways, user.relations, user.changesets])
 })
 ```
 
 {{ osmviz.table(userTable, ops) }}
+
+{{osmviz.map('user_contributions', {name: "UserContributions", height: 400, width: 600}) }}
+
 
 ```
 var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
