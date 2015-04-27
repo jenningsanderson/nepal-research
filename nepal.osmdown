@@ -48,6 +48,17 @@ changesets_per_tag.forEach(function(d){
 	changesetTable.push([d.tag, d.count])
 	changesetCount = changesetCount + d.count
 })
+
+// Ways
+var ways_per_tag = osmdata(baseurl + 'json/number_of_ways_per_tag.json')
+
+var wayTable = []
+var wayCount = 0
+var options = {headers:['Tag', 'Count']}
+ways_per_tag.forEach(function(d){
+	wayTable.push([d.tag, d.count])
+	wayCount = changesetCount + d.count
+})
 ```
 
 <p style="font-size:24px;"><strong>{{ total_mappers }}</strong> mappers have edited <strong>{{ totalHighways }}</strong> highways and <strong>{{ buildingCount }}</strong> buildings in <strong>{{ changesetCount }}</strong> changesets since April 25, 2015.</p>
@@ -79,10 +90,10 @@ ops.title="userTable"
 
 #HOT Task Tag Counts
 
-<div style="display:inline-block; margin:10px"><h2>Highways</h2>
-{{ osmviz.table('simple', highwayTable, options) }}
+<div style="display:inline-block; margin:10px"><h2>Roads</h2>
+{{ osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p>
 </div><div style="display:inline-block; margin:10px;"><h2>Buildings</h2>
-{{ osmviz.table('simple', buildingsTable, options) }}
-</div><div style="display:inline-block; margin:10px;"><h2>Total Changesets</h2>
-{{ osmviz.table('simple', changesetTable, options) }}
+{{ osmviz.table('simple', buildingsTable, options) }}<p style="text-align:right">Total: <strong>{{buildingCount}}</strong></p></div><div style="display:inline-block; margin:10px;"><h2>Ways</h2>
+{{ osmviz.table('simple', wayTable, options) }}<p style="text-align:right">Total: <strong>{{wayCount}}</strong></p></div><div style="display:inline-block; margin:10px;"><h2>Total Changesets</h2>
+{{ osmviz.table('simple', changesetTable, options) }}<p style="text-align:right">Total: <strong>{{changesetCount}}</strong></p>
 </div>
