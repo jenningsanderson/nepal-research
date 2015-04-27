@@ -61,7 +61,7 @@ ways_per_tag.forEach(function(d){
 })
 ```
 
-<p style="font-size:24px;"><strong>{{ total_mappers }}</strong> mappers have edited <strong>{{ totalHighways }}</strong> highways and <strong>{{ buildingCount }}</strong> buildings in <strong>{{ changesetCount }}</strong> changesets since April 25, 2015.</p>
+<p style="font-size:24px;"><strong>{{ total_mappers }}</strong> mappers have made <strong>{{ totalHighways }}</strong> edits to highways and <strong>{{ buildingCount }}</strong> edits to buildings in <strong>{{ changesetCount }}</strong> changesets since April 25, 2015.</p>
 
 
 #User Contributions
