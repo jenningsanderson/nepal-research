@@ -11,9 +11,43 @@ google_analytics: 'UA-62334916-1'
 
 OpenStreetMap response to the April 25 Earthquake in Nepal
 ======================================
+```
+var options = {
+	name: 'overviewmap',
+	height: '330px',
+	width: '500px',
+	containerStyle: 'float: left;',
+	popupStyle: 'basic',
+	popupData: 'description',
+	zoom: '6',
+	data: {
+    "type": "FeatureCollection",
+    "features": [
+     {
+      "type": "Feature",
+      "properties": {
+        "description": "Epicenter of 7.8 Magnitude Earthquake on April 25"
+        },
+       "geometry": {
+         "type": "Point",
+         "coordinates": [
+           85.7266,
+           27.732
+         ]
+       }
+     }
+    ]
+  }
+ }
+```
+{{ osmviz.map('popup',options)}}
 
-{{ osmviz.block('nepal_overview', options) }}
-
+<div style='float:left; padding:0px 30px; width:50%;'>
+  <p>On April 25th, a 7.8 magnitude earthquake stuck Nepal approximately 50 miles northwest of Kathmandu.  With the coordination of <a href='http://kathmandulivinglabs.org/'>Kathmandu Living Labs</a> and the <a href='http://hotosm.org'>Humanitarian OpenStreetMap Team</a>, a global volunteer effort to map roads and buildings in the affected area is under way.  OpenStreetMap data is being used by the American Red Cross, the World Bank, and other organizations to support response and recovery activities in Nepal. </p>
+  <p>Read more: <a href='http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake'>http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake</a></p>
+  <p>This site provides basic statistics describing the work of OSM volunteers in the response to this disaster. The data is based on hashtags used in changset comments and therefore undercounts the total amount of contributions occurring at this time.</p>
+</div>
+<br clear='both' />
 ```
 var baseurl = '/data/www/nepal/'
 var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
@@ -111,11 +145,13 @@ var options = {headers: ["Tag", "Count"]}
 
 #HOT Task Tag Counts
 
-<div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Roads</h2>
+<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Roads</h2>
 {{osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p></div>
 
-<div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Buildings</h2>{{osmviz.table('simple', buildingsTable, options) }}<p style="text-align:right">Total: <strong>{{buildingCount}}</strong></p></div>
+<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Buildings</h2>{{osmviz.table('simple', buildingsTable, options) }}<p style="text-align:right">Total: <strong>{{buildingCount}}</strong></p></div>
 
-<div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Ways</h2>{{osmviz.table('simple', wayTable, options) }}<p style="text-align:right">Total: <strong>{{wayCount}}</strong></p></div>
+<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Ways</h2>{{osmviz.table('simple', wayTable, options) }}<p style="text-align:right">Total: <strong>{{wayCount}}</strong></p></div>
 
-<div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Total Changesets</h2>{{osmviz.table('simple', changesetTable, options) }}<p style="text-align:right">Total: <strong>{{changesetCount}}</strong></p></div>
+<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Total Changesets</h2>{{osmviz.table('simple', changesetTable, options) }}<p style="text-align:right">Total: <strong>{{changesetCount}}</strong></p></div>
+
+<br clear="both" />
