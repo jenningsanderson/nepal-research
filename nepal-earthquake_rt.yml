@@ -1,0 +1,20 @@
+#Analysis Window Information
+start_date: '2015-04-25'
+
+#User Information
+title: 'Nepal Earthquake'
+email: 'jennings.anderson@colorado.edu'
+
+#Database & IO Configuration
+database: 'nepal-earthquake'
+write_directory: '/data/www/nepal'
+
+tag_search_term: nepal
+changeset_tags_collection: true
+
+#Steps
+realtime_step: 1
+
+# #Questions Below
+User Questions:
+ - all_contributors_with_geometry
