@@ -25,9 +25,9 @@ Node Questions:
  - nodes_x_day
 
 Way Questions:
-  - number_of_ways_per_tag
-  - number_of_buildings_per_tag
-  - number_of_highways_per_tag
+ - number_of_ways_per_tag
+ - number_of_buildings_per_tag
+ - number_of_highways_per_tag
 
 Changeset Questions:
  - number_of_changesets_per_tag
