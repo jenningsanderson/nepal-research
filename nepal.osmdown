@@ -87,21 +87,37 @@ ops.title="userTable"
 ```
 // Code block here keeps it from breaking... dont' know why
 ```
+#Changesets Per Hour 
+```
+var options = {
+	chartType: 'linegraph_simple'
+}
+var changesets = osmdata(baseurl + 'json/changesets_x_hour.json')
+var hourly_changesets = []
+for (var i=0; i < changesets.length; i ++) {
+	if (new Date(changesets[i].start_date) > new Date('2015-04-25 14:00:00 +0000') && new Date(changesets[i].start_date) < new Date().getTime()) {
+		hourly_changesets[i] = {}
+		hourly_changesets[i].date = changesets[i].start_date
+		hourly_changesets[i].value = changesets[i].objects.length
+	}
+}
+```
+{{ osmviz.linechart(hourly_changesets,options) }}
+
+```
+var options = {}
+```
 
 #HOT Task Tag Counts
 
-```
-// Another code block here, unsure why
-```
-
-<div style="display:inline-block; margin:10px width:22%; vertical-align:top;"><h2>Roads</h2>
+<div style="display:inline-block; margin:10px width:21%; vertical-align:top;"><h2>Roads</h2>
 {{osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p></div>
 
-<div style="display:inline-block; margin:10px; width:22%; vertical-align:top;"><h2>Buildings</h2>{{osmviz.table('simple', buildingsTable, options) }}<p style="text-align:right">Total: <strong>{{buildingCount}}</strong></p></div>
+<div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Buildings</h2>{{osmviz.table('simple', buildingsTable, options) }}<p style="text-align:right">Total: <strong>{{buildingCount}}</strong></p></div>
 
-<div style="display:inline-block; margin:10px; width:22%; vertical-align:top;"><h2>Ways</h2>{{osmviz.table('simple', wayTable, options) }}<p style="text-align:right">Total: <strong>{{wayCount}}</strong></p></div>
+<div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Ways</h2>{{osmviz.table('simple', wayTable, options) }}<p style="text-align:right">Total: <strong>{{wayCount}}</strong></p></div>
 
-<div style="display:inline-block; margin:10px; width:22%; vertical-align:top;"><h2>Total Changesets</h2>{{osmviz.table('simple', changesetTable, options) }}<p style="text-align:right">Total: <strong>{{changesetCount}}</strong></p></div>
+<div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Total Changesets</h2>{{osmviz.table('simple', changesetTable, options) }}<p style="text-align:right">Total: <strong>{{changesetCount}}</strong></p></div>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
