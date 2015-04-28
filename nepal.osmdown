@@ -105,12 +105,12 @@ for (var i=0; i < changesets.length; i ++) {
 {{ osmviz.linechart(hourly_changesets,options) }}
 
 ```
-var options = {}
+var options = {headers: ["Tag", "Count"]}
 ```
 
 #HOT Task Tag Counts
 
-<div style="display:inline-block; margin:10px width:21%; vertical-align:top;"><h2>Roads</h2>
+<div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Roads</h2>
 {{osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p></div>
 
 <div style="display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Buildings</h2>{{osmviz.table('simple', buildingsTable, options) }}<p style="text-align:right">Total: <strong>{{buildingCount}}</strong></p></div>
