@@ -1,0 +1,15 @@
+---
+###Project Information
+title: 'Nepal Earthquake - Live Updates'
+###Analysis Window Information
+
+###Where the data live
+baseurl: '../'
+www: '/data/www/nepal-live'
+google_analytics: 'UA-62334916-1'
+
+---
+
+OpenStreetMap response to the April 25 Earthquake in Nepal
+======================================
+Data delayed up to 15 minutes.
