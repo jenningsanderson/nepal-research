@@ -139,12 +139,15 @@ for (var i=0; i < changesets.length; i ++) {
 ```
 {{ osmviz.linechart(hourly_changesets,options) }}
 <p style="font-size:10px; margin:-30px 0px 0px 35px;">UTC/GMT Time</p>
+
 ```
 var options = {headers: ["Tag", "Count"]}
 ```
 
 #HOT Task Tag Counts
-
+```
+//where I had to add a comment
+```
 <div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Roads</h2>
 {{osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p></div>
 
