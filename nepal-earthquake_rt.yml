@@ -7,7 +7,7 @@ email: 'jennings.anderson@colorado.edu'
 
 #Database & IO Configuration
 database: 'nepal-earthquake'
-write_directory: '/data/www/nepal'
+write_directory: '/data/www/nepal-live'
 
 tag_search_term: nepal
 changeset_tags_collection: true
