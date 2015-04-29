@@ -1,15 +1,160 @@
 ---
 ###Project Information
-title: 'Nepal Earthquake - Live Updates'
+title: 'Nepal Earthquake: Latest'
 ###Analysis Window Information
 
 ###Where the data live
 baseurl: '../'
 www: '/data/www/nepal-live'
-google_analytics: 'UA-62334916-1'
-
 ---
 
 OpenStreetMap response to the April 25 Earthquake in Nepal
 ======================================
-Data delayed up to 15 minutes.
+```
+var options = {
+	name: 'overviewmap',
+	height: '330px',
+	width: '500px',
+	containerStyle: 'float: left;',
+	popupStyle: 'basic',
+	popupData: 'description',
+	zoom: '6',
+	data: {
+    "type": "FeatureCollection",
+    "features": [
+     {
+      "type": "Feature",
+      "properties": {
+        "description": "Epicenter of 7.8 Magnitude Earthquake on April 25"
+        },
+       "geometry": {
+         "type": "Point",
+         "coordinates": [
+           85.7266,
+           27.732
+         ]
+       }
+     }
+    ]
+  }
+ }
+```
+{{ osmviz.map('popup',options)}}
+
+<div style='float:left; padding:0px 30px; width:50%;'>
+  <p>On April 25th, a 7.8 magnitude earthquake stuck Nepal approximately 50 miles northwest of Kathmandu.  With the coordination of <a href='http://kathmandulivinglabs.org/'>Kathmandu Living Labs</a> and the <a href='http://hotosm.org'>Humanitarian OpenStreetMap Team</a>, a global volunteer effort to map roads and buildings in the affected area is under way.  OpenStreetMap data is being used by the American Red Cross, the World Bank, and other organizations to support response and recovery activities in Nepal. </p>
+  <p>Read more: <a href='http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake'>http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake</a></p>
+  <p>This site provides basic statistics describing the work of OSM volunteers in the response to this disaster. The data is based on hashtags used in changset comments and therefore undercounts the total amount of contributions occurring at this time.</p>
+</div>
+<br clear='both' />
+```
+var baseurl = '/data/www/nepal/'
+var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
+
+// Highways
+var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
+var totalHighways = 0
+var highwayTable = []
+var options = {headers:['Tag', 'Count']}
+highways_per_tag.forEach(function(d){
+	highwayTable.push([d.tag, d.count])
+	totalHighways = totalHighways + d.count
+})
+
+// Buildings
+var buildings_per_tag = osmdata(baseurl + 'json/number_of_buildings_per_tag.json')
+
+var buildingsTable = []
+var buildingCount = 0
+var options = {headers:['Tag', 'Count']}
+buildings_per_tag.forEach(function(d){
+	buildingsTable.push([d.tag, d.count])
+	buildingCount = buildingCount + d.count
+})
+
+// Changesets
+var changesets_per_tag = osmdata(baseurl + 'json/number_of_changesets_per_tag.json')
+
+var changesetTable = []
+var changesetCount = 0
+var options = {headers:['Tag', 'Count']}
+changesets_per_tag.forEach(function(d){
+	changesetTable.push([d.tag, d.count])
+	changesetCount = changesetCount + d.count
+})
+
+// Ways
+var ways_per_tag = osmdata(baseurl + 'json/number_of_ways_per_tag.json')
+
+var wayTable = []
+var wayCount = 0
+var options = {headers:['Tag', 'Count']}
+ways_per_tag.forEach(function(d){
+	wayTable.push([d.tag, d.count])
+	wayCount = changesetCount + d.count
+})
+```
+
+<p style="font-size:22px; margin-top:20px;"><strong>{{ total_mappers }}</strong> mappers have made <strong>{{ totalHighways }}</strong> edits to highways and <strong>{{ buildingCount }}</strong> edits to buildings in <strong>{{ changesetCount }}</strong> changesets since April 25, 2015.</p>
+
+
+#User Contributions
+```
+var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
+var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
+```
+
+New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
+
+```
+var userList = osmdata(baseurl + 'json/user_list.json')
+var userTable = []
+var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
+
+userList.forEach(function(user){
+	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
+})
+ops.title="userTable"
+ops.row_function='showUserEditsFromRows'
+```
+<div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700}) }}</div>
+
+```
+// Code block here keeps it from breaking... dont' know why
+```
+#Changesets Per Hour 
+```
+var options = {
+	chartType: 'linegraph_simple'
+}
+var changesets = osmdata(baseurl + 'json/changesets_x_hour.json')
+var hourly_changesets = []
+for (var i=0; i < changesets.length; i ++) {
+	if (new Date(changesets[i].start_date) > new Date('2015-04-25 14:00:00 +0000') && new Date(changesets[i].start_date) < new Date().getTime()) {
+		hourly_changesets[i] = {}
+		hourly_changesets[i].date = changesets[i].start_date
+		hourly_changesets[i].value = changesets[i].objects.length
+	}
+}
+```
+{{ osmviz.linechart(hourly_changesets,options) }}
+<p style="font-size:10px; margin:-30px 0px 0px 35px;">UTC/GMT Time</p>
+
+```
+var options = {headers: ["Tag", "Count"]}
+```
+
+#HOT Task Tag Counts
+```
+//where I had to add a comment
+```
+<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Roads</h2>
+{{osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p></div>
+
+<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Buildings</h2>{{osmviz.table('simple', buildingsTable, options) }}<p style="text-align:right">Total: <strong>{{buildingCount}}</strong></p></div>
+
+<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Ways</h2>{{osmviz.table('simple', wayTable, options) }}<p style="text-align:right">Total: <strong>{{wayCount}}</strong></p></div>
+
+<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Total Changesets</h2>{{osmviz.table('simple', changesetTable, options) }}<p style="text-align:right">Total: <strong>{{changesetCount}}</strong></p></div>
+
+<br clear="both" />
