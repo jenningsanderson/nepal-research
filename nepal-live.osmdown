@@ -37,7 +37,7 @@ var options = {
 var changesets = osmdata(baseurl + '/json/changesets_x_hour.json')
 var hourly_changesets = []
 for (var i=0; i < changesets.length; i ++) {
-	if (new Date(changesets[i].start_date) > new Date('2015-04-25 14:00:00 +0000') && new Date(changesets[i].start_date) < new Date().getTime()) {
+	if (new Date(changesets[i].start_date) > new Date('2015-04-29 00:00:00 +0000') && new Date(changesets[i].start_date) < new Date().getTime()) {
 		hourly_changesets[i] = {}
 		hourly_changesets[i].date = changesets[i].start_date
 		hourly_changesets[i].value = changesets[i].objects.length
