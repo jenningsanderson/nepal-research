@@ -117,10 +117,6 @@ New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
 //})
 //ops.title="userTable"
 //ops.row_function='showUserEditsFromRows'
-```
-<!--<div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700}) }}</div>-->
-
-```
 // Code block here keeps it from breaking... dont' know why
 ```
 #Changesets Per Hour 
