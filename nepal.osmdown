@@ -55,29 +55,30 @@ var baseurl = '/data/www/nepal/'
 var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
 var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
 var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
-```
 
-#User Contributions
-<p style="font-size:22px; margin-top:20px;">New Mappers:<strong>{{ new_mappers }}</strong> 
-<p style="font-size:22px; margin-top:20px;">Experienced Mappers: <strong>{{ experienced_mappers }}</strong> 
-<hr>
-<p style="font-size:22px; margin-top:20px;">Total Mappers:<strong>{{ total_mappers }}</strong></p>
-
-
-#Changesets Per Hour 
-```
 var options = {
 	chartType: 'linegraph_simple', width:1200
 }
 var changesets = osmdata(baseurl + 'json/changesets_x_hour.json')
 var hourly_changesets = []
+var totalChangesets = 0
 for (var i=0; i < changesets.length; i ++) {
 	if (new Date(changesets[i].start_date) > new Date('2015-04-25 14:00:00 +0000') && new Date(changesets[i].start_date) < new Date().getTime()) {
 		hourly_changesets[i] = {}
 		hourly_changesets[i].date = changesets[i].start_date
 		hourly_changesets[i].value = changesets[i].objects.length
+		totalChangesets += changesets[i].objects.length
 	}
 }
+```
+
+#User Contributions
+<p style="font-size:22px; margin-top:20px;">Total Mappers:<strong>{{ total_mappers }}</strong> have made <strong>{{totalChangesets}}</strong> edits to the map.  There have been <strong>{{ new_mappers }}</strong> new mappers</p>
+
+
+#Changesets Per Hour 
+```
+//Another comment
 ```
 {{ osmviz.linechart(hourly_changesets,options) }}
 <p style="font-size:10px; margin:-30px 0px 0px 35px;">UTC/GMT Time</p>
