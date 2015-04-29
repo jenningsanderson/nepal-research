@@ -1,47 +1,34 @@
-#Analysis Window Information
-start_date: '2015-04-27'
-end_date:   '2015-04-28'
-
-#User Information
-title: 'Nepal Earthquake'
-email: 'jennings.anderson@colorado.edu'
-
-#Database & IO Configuration
-database: 'nepal-earthquake'
-write_directory: '/data/www/nepal-live'
-
+---
+start_date: 2015-04-28 17:00:00.000000000 -06:00
+end_date: 2015-04-28 18:00:00.000000000 -06:00
+title: Nepal Earthquake
+email: jennings.anderson@colorado.edu
+database: nepal-earthquake
+write_directory: "/data/www/nepal/2015_4_28_18"
 tag_search_term: nepal
 changeset_tags_collection: true
-
-#Steps
 realtime_step: 1
-
 Node Questions:
- - total_nodes_edited
- - number_of_new_nodes
- - number_of_nodes_edited_by_new_mappers
- - number_of_nodes_edited_by_experienced_mappers
- - mean_nodes_per_mapper
- - median_nodes_per_mapper
- - nodes_x_day
-
+- total_nodes_edited
+- number_of_new_nodes
+- number_of_nodes_edited_by_new_mappers
+- number_of_nodes_edited_by_experienced_mappers
+- mean_nodes_per_mapper
+- median_nodes_per_mapper
+- nodes_x_day
 Way Questions:
- - number_of_ways_per_tag
- - number_of_buildings_per_tag
- - number_of_highways_per_tag
-
+- number_of_ways_per_tag
+- number_of_buildings_per_tag
+- number_of_highways_per_tag
 Changeset Questions:
- - number_of_changesets_per_tag
- - changesets_x_hour
-
+- number_of_changesets_per_tag
+- changesets_x_hour
 User Questions:
- - new_user_count
- - experienced_user_count
- - total_user_count
- - user_list
-
+- new_user_count
+- experienced_user_count
+- total_user_count
+- user_list
 Multi User Questions:
- - user_list_with_geometry
-
+- user_list_with_geometry
 Bbox Questions:
- - bbox_geojson_geometry
+- bbox_geojson_geometry
