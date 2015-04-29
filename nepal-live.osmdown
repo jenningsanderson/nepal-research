@@ -10,48 +10,11 @@ www: '/data/www/nepal-live'
 
 OpenStreetMap response to the April 25 Earthquake in Nepal: In the Last Hour:
 ======================================
-```
-var options = {
-	name: 'overviewmap',
-	height: '330px',
-	width: '500px',
-	containerStyle: 'float: left;',
-	popupStyle: 'basic',
-	popupData: 'description',
-	zoom: '6',
-	data: {
-    "type": "FeatureCollection",
-    "features": [
-     {
-      "type": "Feature",
-      "properties": {
-        "description": "Epicenter of 7.8 Magnitude Earthquake on April 25"
-        },
-       "geometry": {
-         "type": "Point",
-         "coordinates": [
-           85.7266,
-           27.732
-         ]
-       }
-     }
-    ]
-  }
- }
-```
-{{ osmviz.map('popup',options)}}
-
-<div style='float:left; padding:0px 30px; width:50%;'>
-  <p>On April 25th, a 7.8 magnitude earthquake stuck Nepal approximately 50 miles northwest of Kathmandu.  With the coordination of <a href='http://kathmandulivinglabs.org/'>Kathmandu Living Labs</a> and the <a href='http://hotosm.org'>Humanitarian OpenStreetMap Team</a>, a global volunteer effort to map roads and buildings in the affected area is under way.  OpenStreetMap data is being used by the American Red Cross, the World Bank, and other organizations to support response and recovery activities in Nepal. </p>
-  <p>Read more: <a href='http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake'>http://wiki.openstreetmap.org/wiki/2015_Nepal_earthquake</a></p>
-  <p>This site provides basic statistics describing the work of OSM volunteers in the response to this disaster. The data is based on hashtags used in changset comments and therefore undercounts the total amount of contributions occurring at this time.</p>
-</div>
-<br clear='both' />
 
 ```
 var baseurl = '/data/www/nepal-live/'
 var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
-
+```
 
 #User Contributions
 ```
@@ -60,19 +23,6 @@ var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 ```
 
 New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
-
-```
-//var userList = osmdata(baseurl + 'json/user_list.json')
-//var userTable = []
-//var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
-
-//userList.forEach(function(user){
-//	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
-//})
-//ops.title="userTable"
-//ops.row_function='showUserEditsFromRows'
-```
-<!-- <div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700}) }}</div> -->
 
 ```
 // Code block here keeps it from breaking... dont' know why
