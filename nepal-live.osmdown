@@ -8,7 +8,7 @@ baseurl: '../'
 www: '/data/www/nepal-live'
 ---
 
-OpenStreetMap response to the April 25 Earthquake in Nepal
+OpenStreetMap response to the April 25 Earthquake in Nepal: In the Last Hour:
 ======================================
 ```
 var options = {
@@ -47,55 +47,10 @@ var options = {
   <p>This site provides basic statistics describing the work of OSM volunteers in the response to this disaster. The data is based on hashtags used in changset comments and therefore undercounts the total amount of contributions occurring at this time.</p>
 </div>
 <br clear='both' />
+
 ```
 var baseurl = '/data/www/nepal-live/'
 var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
-
-// Highways
-var highways_per_tag = osmdata(baseurl + 'json/number_of_highways_per_tag.json')
-var totalHighways = 0
-var highwayTable = []
-var options = {headers:['Tag', 'Count']}
-highways_per_tag.forEach(function(d){
-	highwayTable.push([d.tag, d.count])
-	totalHighways = totalHighways + d.count
-})
-
-// Buildings
-var buildings_per_tag = osmdata(baseurl + 'json/number_of_buildings_per_tag.json')
-
-var buildingsTable = []
-var buildingCount = 0
-var options = {headers:['Tag', 'Count']}
-buildings_per_tag.forEach(function(d){
-	buildingsTable.push([d.tag, d.count])
-	buildingCount = buildingCount + d.count
-})
-
-// Changesets
-var changesets_per_tag = osmdata(baseurl + 'json/number_of_changesets_per_tag.json')
-
-var changesetTable = []
-var changesetCount = 0
-var options = {headers:['Tag', 'Count']}
-changesets_per_tag.forEach(function(d){
-	changesetTable.push([d.tag, d.count])
-	changesetCount = changesetCount + d.count
-})
-
-// Ways
-var ways_per_tag = osmdata(baseurl + 'json/number_of_ways_per_tag.json')
-
-var wayTable = []
-var wayCount = 0
-var options = {headers:['Tag', 'Count']}
-ways_per_tag.forEach(function(d){
-	wayTable.push([d.tag, d.count])
-	wayCount = changesetCount + d.count
-})
-```
-
-<p style="font-size:22px; margin-top:20px;"><strong>{{ total_mappers }}</strong> mappers have made <strong>{{ totalHighways }}</strong> edits to highways and <strong>{{ buildingCount }}</strong> edits to buildings in <strong>{{ changesetCount }}</strong> changesets since April 25, 2015.</p>
 
 
 #User Contributions
@@ -107,17 +62,17 @@ var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
 
 ```
-var userList = osmdata(baseurl + 'json/user_list.json')
-var userTable = []
-var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
+//var userList = osmdata(baseurl + 'json/user_list.json')
+//var userTable = []
+//var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
 
-userList.forEach(function(user){
-	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
-})
-ops.title="userTable"
-ops.row_function='showUserEditsFromRows'
+//userList.forEach(function(user){
+//	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
+//})
+//ops.title="userTable"
+//ops.row_function='showUserEditsFromRows'
 ```
-<div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700}) }}</div>
+<!-- <div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700}) }}</div> -->
 
 ```
 // Code block here keeps it from breaking... dont' know why
@@ -139,22 +94,3 @@ for (var i=0; i < changesets.length; i ++) {
 ```
 {{ osmviz.linechart(hourly_changesets,options) }}
 <p style="font-size:10px; margin:-30px 0px 0px 35px;">UTC/GMT Time</p>
-
-```
-var options = {headers: ["Tag", "Count"]}
-```
-
-#HOT Task Tag Counts
-```
-//where I had to add a comment
-```
-<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Roads</h2>
-{{osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p></div>
-
-<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Buildings</h2>{{osmviz.table('simple', buildingsTable, options) }}<p style="text-align:right">Total: <strong>{{buildingCount}}</strong></p></div>
-
-<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Ways</h2>{{osmviz.table('simple', wayTable, options) }}<p style="text-align:right">Total: <strong>{{wayCount}}</strong></p></div>
-
-<div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Total Changesets</h2>{{osmviz.table('simple', changesetTable, options) }}<p style="text-align:right">Total: <strong>{{changesetCount}}</strong></p></div>
-
-<br clear="both" />
