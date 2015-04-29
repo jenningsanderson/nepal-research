@@ -73,7 +73,7 @@ for (var i=0; i < changesets.length; i ++) {
 ```
 
 #User Contributions
-<p style="font-size:22px; margin-top:20px;">Total Mappers:<strong>{{ total_mappers }}</strong> have made <strong>{{totalChangesets}}</strong> edits to the map.  There have been <strong>{{ new_mappers }}</strong> new mappers</p>
+<p style="font-size:22px; margin-top:20px;"><strong>{{ total_mappers }}</strong> mappers have made <strong>{{totalChangesets}}</strong> edits to the map.  <strong>{{ new_mappers }}</strong> of these mappers are new to OpenStreetMap, <strong>{{ experienced_mappers}}</strong> are experienced mappers.</p>
 
 
 #Changesets Per Hour 
