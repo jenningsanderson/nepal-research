@@ -4,7 +4,7 @@ end_date: 2015-04-28 18:00:00.000000000 -06:00
 title: Nepal Earthquake
 email: jennings.anderson@colorado.edu
 database: nepal-earthquake
-write_directory: "/data/www/nepal/2015_4_28_18"
+write_directory: "/data/www/nepal-live/2015_4_28_18"
 tag_search_term: nepal
 changeset_tags_collection: true
 realtime_step: 1
