@@ -48,7 +48,7 @@ var options = {
 </div>
 <br clear='both' />
 ```
-var baseurl = '/data/www/nepal/'
+var baseurl = '/data/www/nepal-live/'
 var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
 
 // Highways
