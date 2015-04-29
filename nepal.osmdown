@@ -141,7 +141,7 @@ for (var i=0; i < changesets.length; i ++) {
 var options = {headers: ["Tag", "Count"]}
 ```
 
-#HOT Task Tag Counts
+#HOT Task Tag Counts (For Active Tasks)
 ```
 //where I had to add a comment
 ```
