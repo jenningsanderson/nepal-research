@@ -8,8 +8,10 @@ baseurl: '../'
 www: '/data/www/nepal-live'
 ---
 
-OpenStreetMap response to the April 25 Earthquake in Nepal: In the Last Hour:
+OpenStreetMap response to the April 25 Earthquake in Nepal
 ======================================
+
+In the Last Hour:
 
 ```
 var baseurl = '/data/www/nepal-live/'
@@ -32,7 +34,7 @@ New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
 var options = {
 	chartType: 'linegraph_simple'
 }
-var changesets = osmdata(baseurl + 'json/changesets_x_hour.json')
+var changesets = osmdata(baseurl + '/2015_4_29_4/json/changesets_x_hour.json')
 var hourly_changesets = []
 for (var i=0; i < changesets.length; i ++) {
 	if (new Date(changesets[i].start_date) > new Date('2015-04-25 14:00:00 +0000') && new Date(changesets[i].start_date) < new Date().getTime()) {
