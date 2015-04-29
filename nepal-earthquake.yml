@@ -12,3 +12,9 @@ email: 'jennings.anderson@colorado.edu'
 # pbf_file: '/data/osm_files/splitter_exports/north-america.osm.pbf'
 database: 'nepal-earthquake'
 write_directory: '/data/www/nepal-live'
+
+User Questions:
+- new_user_count
+- experienced_user_count
+- total_user_count
+- user_list
