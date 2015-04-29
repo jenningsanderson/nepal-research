@@ -11,17 +11,14 @@ www: '/data/www/nepal-live'
 OpenStreetMap response to the April 25 Earthquake in Nepal
 ======================================
 
-In the Last Hour:
-
 ```
 var baseurl = '/data/www/nepal-live/'
-var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
 ```
 
-#User Contributions
+#User Contributions in the last Hour:
 ```
-var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
-var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
+var experienced_mappers = _.values(osmdata(baseurl + '/2015_4_29_21/json/experienced_user_count.json'))[0]
+var new_mappers = _.values(osmdata(baseurl + '/2015_4_29_21/json/new_user_count.json'))[0]
 ```
 
 New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
