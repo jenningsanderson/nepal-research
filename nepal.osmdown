@@ -57,7 +57,7 @@ var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_coun
 var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 
 var options = {
-	chartType: 'linegraph_simple', width:1200
+	chartType: 'linegraph_dates', width:1200, title: 'ChangesetsPerHourGraph'
 }
 var changesets = osmdata(baseurl + 'json/changesets_x_hour.json')
 var hourly_changesets = []
