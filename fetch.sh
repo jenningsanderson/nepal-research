@@ -10,4 +10,6 @@ git pull					#Update
 
 echo "Building the page"
 nodejs ~/osmdown/bin/osmdown build ~/nepal-earthquake/nepal.osmdown
+
+echo "Building the live page"
 node ~/osmdown/bin/osmdown build ~/nepal-earthquake/nepal-live.osmdown

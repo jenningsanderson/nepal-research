@@ -17,8 +17,10 @@ var date = new Date()
 var current_hour = date.getFullYear()+"_"+(date.getMonth()+1)+"_"+date.getDate()+"_"+date.getHours()
 var baseurl_live = baseurl + '/' + current_hour 
 var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-var baseurl_live = baseurl + '/2015_4_30_0' //localtesting
 var prettyDate = months[date.getMonth()] + " " + date.getDate() + " " +date.getHours() + ":00"
+
+
+//var baseurl_live = baseurl + '/2015_4_30_0' //localtesting
 ```
 
 #User Contributions
