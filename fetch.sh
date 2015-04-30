@@ -1,4 +1,5 @@
 #! /bin/bash
+date
 echo "Getting latest from Mikel's exports"
 cd /data/www/nepal/json
 wget "*.json" -nH --cut-dirs=1 -r --level=1 --no-parent --reject="index.html" http://ec2-54-242-150-21.compute-1.amazonaws.com/nepal/

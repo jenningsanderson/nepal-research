@@ -1,3 +1,5 @@
+date
+echo "Running Nepal_Questions_cron.sh"
 cd ~/epic-osm/
 
 #Update the analysis window to reflect the latest

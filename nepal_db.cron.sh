@@ -1,3 +1,5 @@
+date
+echo "Running Nepal_db_cron.sh"
 cd ~/epic-osm/
 
 rake realtime ~/nepal-earthquake/nepal-earthquake_rt.yml
