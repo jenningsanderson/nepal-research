@@ -29,6 +29,6 @@ User Questions:
 - total_user_count
 - user_list
 Multi User Questions:
-- user_list_with_geometry
+- all_contributors_with_geometry
 Bbox Questions:
 - bbox_geojson_geometry

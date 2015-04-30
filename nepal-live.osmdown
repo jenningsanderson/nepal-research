@@ -13,6 +13,9 @@ OpenStreetMap response to the April 25 Earthquake in Nepal
 
 ```
 var baseurl = '/data/www/nepal-live/'
+var date = new Date()
+var current_hour = date.getFullYear()+"_"+(date.getMonth()+1)+"_"+date.getDate()+"_"+date.getHours()
+var baseurl = baseurl + current_hour 
 ```
 
 #User Contributions in the last Hour:
