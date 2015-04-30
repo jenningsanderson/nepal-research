@@ -56,7 +56,7 @@ ops.title="userTable"
 #Changesets Per Hour 
 ```
 var options = {
-	chartType: 'linegraph_simple'
+	chartType: 'linegraph_simple', width:1200
 }
 var changesets = osmdata(baseurl + '/json/changesets_x_hour.json')
 var hourly_changesets = []
