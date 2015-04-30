@@ -5,7 +5,9 @@ wget "*.json" -nH --cut-dirs=1 -r --level=1 --no-parent --reject="index.html" ht
 
 echo "Getting lateset update to nepal.osmdown from github"
 cd ~/nepal-earthquake
-git pull
+git stash 					#Need to stash the latest
+git pull					#Update
 
 echo "Building the page"
 nodejs ~/osmdown/bin/osmdown build ~/nepal-earthquake/nepal.osmdown
+node ~/osmdown/bin/osmdown build ~/nepal-earthquake/nepal-live.osmdown
