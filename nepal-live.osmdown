@@ -16,11 +16,14 @@ var baseurl = '/data/www/nepal-live'
 var date = new Date()
 var current_hour = date.getFullYear()+"_"+(date.getMonth()+1)+"_"+date.getDate()+"_"+date.getHours()
 var baseurl_live = baseurl + '/' + current_hour 
-
-//var baseurl_live = baseurl + '/2015_4_30_0' //localtesting
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+var baseurl_live = baseurl + '/2015_4_30_0' //localtesting
+var prettyDate = months[date.getMonth()] + " " + date.getDate() + " " +date.getHours() + ":00"
 ```
 
-#User Contributions in the last Hour:
+#User Contributions
+##Since the top of the hour: {{ prettyDate }} UTC
+
 ```
 var experienced_mappers = _.values(osmdata(baseurl_live + '/json/experienced_user_count.json'))[0]
 var new_mappers = _.values(osmdata(baseurl_live + '/json/new_user_count.json'))[0]

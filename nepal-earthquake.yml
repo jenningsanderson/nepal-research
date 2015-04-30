@@ -9,14 +9,13 @@ title: 'Nepal Earthquake'
 email: 'jennings.anderson@colorado.edu'
 
 #Database & IO Configuration
-# pbf_file: '/data/osm_files/splitter_exports/north-america.osm.pbf'
 database: 'nepal-earthquake'
 write_directory: '/data/www/nepal-live'
 
 User Questions:
 - new_user_count
 - experienced_user_count
-- total_user_count
+- total_user_count			#These are cumulative, but the database needs to be be updated
 
 Changeset Questions:
-- changesets_x_hour
+- changesets_x_hour 		#This is cumulative -- but the database is incomplete
