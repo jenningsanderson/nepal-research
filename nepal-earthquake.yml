@@ -12,6 +12,9 @@ email: 'jennings.anderson@colorado.edu'
 database: 'nepal-earthquake'
 write_directory: '/data/www/nepal-live'
 
+tag_search_term: nepal
+changeset_tags_collection: true
+
 User Questions:
 - new_user_count
 - experienced_user_count

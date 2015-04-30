@@ -62,14 +62,38 @@ var options = {
 var changesets = osmdata(baseurl + 'json/changesets_x_hour.json')
 var hourly_changesets = []
 var totalChangesets = 0
+var hourlyUsers = []
+var cumulativeUsers = []
+var cumulativeUserIds = []
 for (var i=0; i < changesets.length; i ++) {
 	if (new Date(changesets[i].start_date) > new Date('2015-04-25 14:00:00 +0000') && new Date(changesets[i].start_date) < new Date().getTime()) {
 		hourly_changesets[i] = {}
 		hourly_changesets[i].date = changesets[i].start_date
 		hourly_changesets[i].value = changesets[i].objects.length
 		totalChangesets += changesets[i].objects.length
+
+		uniqueUsers = _.uniq(_.collect(changesets[i].objects, 'uid'))
+		hourlyUsers[i] = {}
+		hourlyUsers[i].date = changesets[i].start_date
+		hourlyUsers[i].value = uniqueUsers.length
+		//console.log(uniqueUsers)
+
+		cumulativeUserIds.concat(uniqueUsers)
+		console.log(cumulativeUserIds)
+		//cumulativeUserIds = _.uniq(cumulativeUserIds)
+		
+		//cumulativeUsers[i] = {}
+		//cumulativeUsers[i].date = changesets[i].start_date
+		//cumulativeUsers[i].value = cumulativeUserIds.length
+
 	}
 }
+
+var toPlot = [
+			  {title: "Changesets",     		data: _.compact(hourly_changesets)}
+		//	  {title: "Active Users",   		data: _.compact(hourlyUsers)},
+		//	  {title: "Cumulative User Count", 	data: _.compact(cumulativeUsers)}
+			 ]
 ```
 
 #User Contributions
@@ -80,7 +104,7 @@ for (var i=0; i < changesets.length; i ++) {
 ```
 //Another comment
 ```
-{{ osmviz.linechart(hourly_changesets,options) }}
+{{ osmviz.linechart(toPlot,options) }}
 <p style="font-size:10px; margin:-30px 0px 0px 35px;">UTC/GMT Time</p>
 
 ```
