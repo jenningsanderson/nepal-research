@@ -15,16 +15,40 @@ OpenStreetMap response to the April 25 Earthquake in Nepal
 var baseurl = '/data/www/nepal-live/'
 var date = new Date()
 var current_hour = date.getFullYear()+"_"+(date.getMonth()+1)+"_"+date.getDate()+"_"+date.getHours()
-var baseurl = baseurl + current_hour 
+var baseurl_live = baseurl + current_hour 
 ```
 
 #User Contributions in the last Hour:
 ```
-var experienced_mappers = _.values(osmdata(baseurl + '/2015_4_29_21/json/experienced_user_count.json'))[0]
-var new_mappers = _.values(osmdata(baseurl + '/2015_4_29_21/json/new_user_count.json'))[0]
+var experienced_mappers = _.values(osmdata(baseurl_live + '/json/experienced_user_count.json'))[0]
+var new_mappers = _.values(osmdata(baseurl_live + '/json/new_user_count.json'))[0]
 ```
-
 New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
+
+```
+var userList = osmdata(baseurl_live+ '/json/user_list.json')
+var userTable = []
+var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"]}
+
+userList.forEach(function(user){
+	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
+})
+ops.title="userTable"
+```
+<div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700, path: baseurl_live}) }}</div>
+
+```
+// Code block here keeps it from breaking... dont' know why
+```
+#Changesets Per Hour 
+
+
+
+
+
+
+
+
 
 ```
 // Code block here keeps it from breaking... dont' know why
