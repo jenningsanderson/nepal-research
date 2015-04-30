@@ -17,7 +17,6 @@ User Questions:
 - new_user_count
 - experienced_user_count
 - total_user_count
-- user_list
 
 Changeset Questions:
 - changesets_x_hour
