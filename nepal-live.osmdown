@@ -35,10 +35,10 @@ New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
 ```
 var userList = osmdata(baseurl_live+ '/json/user_list.json')
 var userTable = []
-var ops = {headers:["User","Node Count", "Way Count", "Relations Count", "Changeset Count"], row_function:'showUserEditsFromRows'}
+var ops = {headers:["User","Node Count", "Way Count", "Changeset Count"], row_function:'showUserEditsFromRows'}
 
 userList.forEach(function(user){
-	userTable.push([user.user, user.nodes, user.ways, user.relations, user.changesets])
+	userTable.push([user.user, user.nodes, user.ways, user.changesets])
 })
 ops.title="userTable"
 ```
