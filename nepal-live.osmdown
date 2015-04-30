@@ -48,29 +48,24 @@ ops.title="userTable"
 ```
 // Code block here keeps it from breaking... dont' know why
 ```
-#Changesets Per Minute
+#Changesets Per Hour
+##Since April 25, 2015
 ```
 var options = {
 	chartType: 'linegraph_simple', width:1200
 }
-var changesets = osmdata(baseurl_live+ '/json/changesets_x_hour.json')
-var minutely_changesets = []
-var minutely_count = []
-var these_dates = []
-changesets[0].objects.length
-for (var i=0; i < changesets[0].objects.length; i ++) {
-	cSet = changesets[0].objects[i]
-	
-	if (minutely_count[(new Date(cSet.created_at)).getMinutes()] > 0){
-		minutely_count[(new Date(cSet.created_at)).getMinutes()] += 1
-	}else{
-		minutely_count[(new Date(cSet.created_at)).getMinutes()] = 0
-		these_dates[i] = new Date(cSet.created_at)
+var changesets = osmdata('/data/www/nepal/json/changesets_x_hour.json')
+
+var hourly_changesets = []
+var totalChangesets = 0
+for (var i=0; i < changesets.length; i ++) {
+	if (new Date(changesets[i].start_date) > new Date('2015-04-25 14:00:00 +0000') && new Date(changesets[i].start_date) < new Date().getTime()) {
+		hourly_changesets[i] = {}
+		hourly_changesets[i].date = changesets[i].start_date
+		hourly_changesets[i].value = changesets[i].objects.length
+		totalChangesets += changesets[i].objects.length
 	}
 }
-for (var i=0; i<minutely_count.length; i++){
-	minutely_changesets.push({date: these_dates[i], value: minutely_count[i]})
-}
 ```
-{{ osmviz.linechart(minutely_changesets,options) }}
+{{ osmviz.linechart(hourly_changesets,options) }}
 <p style="font-size:10px; margin:-30px 0px 0px 35px;">UTC/GMT Time</p>

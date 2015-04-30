@@ -7,7 +7,7 @@ rake realtime ~/nepal-earthquake/nepal-earthquake_rt.yml
 rake questions:changesets  ~/nepal-earthquake/nepal-earthquake_rt.yml
 rake questions:users       ~/nepal-earthquake/nepal-earthquake_rt.yml
 rake questions:multi_users ~/nepal-earthquake/nepal-earthquake_rt.yml
-rake questions:ways        ~/nepal-earthquake/nepal-earthquake_rt.yml
+# rake questions:ways        ~/nepal-earthquake/nepal-earthquake_rt.yml
 
 #Run other questions?
 rake questions:users       ~/nepal-earthquake/nepal-earthquake.yml
