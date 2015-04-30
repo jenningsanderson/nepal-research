@@ -16,6 +16,7 @@ Way Questions:
 
 Changeset Questions:
 - number_of_changesets_per_tag
+- changesets_x_hour
 
 User Questions:
 - new_user_count
