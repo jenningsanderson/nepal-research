@@ -22,3 +22,8 @@ User Questions:
 
 Changeset Questions:
 - changesets_x_hour 		#This is cumulative -- but the database is incomplete
+
+Way Questions:
+- number_of_ways_per_tag
+- number_of_buildings_per_tag
+- number_of_highways_per_tag

@@ -51,7 +51,7 @@ var options = {
 
 
 ```
-var baseurl = '/data/www/nepal/'
+var baseurl = '/data/www/nepal-live/'
 var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
 var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
 var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
