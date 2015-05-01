@@ -144,8 +144,30 @@ ways_per_tag.forEach(function(d){
 })
 ```
 
-#HOT Task Tag Counts
-###(For Active Tasks)
+#Latest Contribution Activity
+##Since the top of the hour: {{ prettyDate }} UTC
+
+```
+var experienced_mappers = _.values(osmdata(baseurl_live + '/json/experienced_user_count.json'))[0]
+var new_mappers = _.values(osmdata(baseurl_live + '/json/new_user_count.json'))[0]
+```
+New Mappers: {{ new_mappers }} | Experienced Mappers: {{ experienced_mappers }}
+
+```
+var userList = osmdata(baseurl_live+ '/json/user_list.json')
+var userTable = []
+var ops = {headers:["User","Node Count", "Way Count", "Changeset Count"], row_function:'showUserEditsFromRows'}
+
+userList.forEach(function(user){
+	userTable.push([user.user, user.nodes, user.ways, user.changesets])
+})
+ops.title="userTable"
+```
+
+<div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700, path: '/nepal-live/'+current_hour}) }}</div>
+
+
+#Initial HOT Task Tag Counts
 ```
 //where I had to add a comment
 ```
