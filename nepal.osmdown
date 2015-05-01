@@ -171,13 +171,13 @@ ops.title="userTable"
 ```
 
 <div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700, path: '/nepal-live/'+current_hour}) }}</div>
-
 ```
 //where I had to add a comment
 ```
-
 #Initial HOT Task Tag Counts
-
+```
+//where I had to add a comment
+```
 <div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Roads</h2>
 {{osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p></div>
 
