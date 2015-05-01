@@ -42,16 +42,13 @@ userList.forEach(function(user){
 })
 ops.title="userTable"
 ```
+
 <div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700, path: '/nepal-live/'+current_hour}) }}</div>
 
 
 ```
-// Code block here keeps it from breaking... dont' know why
-```
+var options = { chartType: 'linegraph_simple', width:1200, id: 'PerHour' }
 
-var options = {
-	chartType: 'linegraph_simple', width:1200, id: 'PerHour'
-}
 var changesets = osmdata(baseurl + 'json/changesets_x_hour.json')
 var hourly_changesets = []
 var totalChangesets = 0
@@ -82,6 +79,7 @@ var toPlot = [
 
 #Changesets Per Hour 
 ##Since April 25, 2015
+
 ```
 //Another comment
 ```
