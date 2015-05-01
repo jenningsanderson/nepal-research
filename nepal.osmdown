@@ -59,7 +59,7 @@ var months = ["January", "February", "March", "April", "May", "June", "July", "A
 var prettyDate = months[date.getMonth()] + " " + date.getDate() + " " +date.getHours() + ":00"
 
 var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
-var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
+// var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
 var new_mappers = _.values(osmdata(baseurl + 'json/new_user_count.json'))[0]
 
 var options = {
@@ -93,7 +93,7 @@ var toPlot = [
 ```
 
 #User Contributions
-<p style="font-size:22px; margin-top:20px;"><strong>{{ numeral(total_mappers).format('0,0') }}</strong> mappers have made <strong>{{numeral(totalChangesets).format('0,0')}}</strong> edits to the map.  <strong>{{ numeral(new_mappers).format('0,0') }}</strong> of these mappers are new to OpenStreetMap while <strong>{{ numeral(experienced_mappers).format('0,0')}}</strong> opened their accounts before April 25, 2015.</p>
+<p style="font-size:22px; margin-top:20px;"><strong>{{ numeral(total_mappers).format('0,0') }}</strong> mappers have made <strong>{{numeral(totalChangesets).format('0,0')}}</strong> edits to the map.  At least <strong>{{ numeral(new_mappers).format('0,0') }}</strong> of these mappers are new to OpenStreetMap.</p>
 
 
 #Changesets Per Hour 
@@ -172,11 +172,12 @@ ops.title="userTable"
 
 <div style="width:45%; display:inline-block">{{ osmviz.table('full', userTable, ops) }}</div><div style="width:54%; display:inline-block; vertical-align:top;">{{osmviz.map('user_contributions', {name: "UserContributions", height: 550, width: 700, path: '/nepal-live/'+current_hour}) }}</div>
 
-
-#Initial HOT Task Tag Counts
 ```
 //where I had to add a comment
 ```
+
+#Initial HOT Task Tag Counts
+
 <div style="float:left; display:inline-block; margin:10px; width:21%; vertical-align:top;"><h2>Roads</h2>
 {{osmviz.table('simple', highwayTable, options) }}<p style="text-align:right">Total: <strong>{{totalHighways}}</strong></p></div>
 
