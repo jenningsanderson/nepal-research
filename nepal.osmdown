@@ -51,6 +51,11 @@ var options = {
 
 
 ```
+var current_hour = date.getFullYear()+"_"+(date.getMonth()+1)+"_"+date.getDate()+"_"+date.getHours()
+var baseurl_live = baseurl + '/' + current_hour 
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+var prettyDate = months[date.getMonth()] + " " + date.getDate() + " " +date.getHours() + ":00"
+
 var baseurl = '/data/www/nepal-live/'
 var total_mappers = _.values(osmdata(baseurl + 'json/total_user_count.json'))[0]
 var experienced_mappers = _.values(osmdata(baseurl + 'json/experienced_user_count.json'))[0]
