@@ -2,32 +2,35 @@
 start_date: '2015-04-25'
 end_date:   '2015-05-31'
 
-# not_complete: true #If we enable this, it will only import data that's newish
+# not_complete: true #If we enable this, it will only import data SINCE the earthquake
+mongo_only: true #Well have to enable this because it's going to be potentially too big, but we'll see.
 
 #BBox information
-poly: '/home/osm/nepal/nepal.poly'
-pbf_file_final: '/data/osm_files/splitter_exports/asia/nepal.osm.pbf'
+poly: '/home/osm/nepal-research/nepal.poly'
+
+#We'll be importing directly from the file that was written by the splitter, no need to cut first
+pbf_file: '/data/osm_files/splitter_exports/asia/nepal.osm.pbf'
 
 #User Information
-title: 'Nepal Earthquake'
+title: 'CSCW 2016'
 email: 'jennings.anderson@colorado.edu'
 
 #Database & IO Configuration
 database: 'nepal-full'
 write_directory: '/data/www/nepal-full'
 
-tag_search_term: nepal
-changeset_tags_collection: true
 
-User Questions:
-- new_user_count
-- experienced_user_count
-- total_user_count			#These are cumulative, but the database needs to be be updated
 
-Changeset Questions:
-- changesets_x_hour 		#This is cumulative -- but the database is incomplete
 
-Way Questions:
-- number_of_ways_per_tag
-- number_of_buildings_per_tag
-- number_of_highways_per_tag
+# User Questions:
+# - new_user_count
+# - experienced_user_count
+# - total_user_count			 #These are cumulative, but the database needs to be be updated
+
+# Changeset Questions:
+# - changesets_x_hour 		     #This is cumulative -- but the database is incomplete
+
+# Way Questions:
+# - number_of_ways_per_tag
+# - number_of_buildings_per_tag
+# - number_of_highways_per_tag
