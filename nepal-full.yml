@@ -2,15 +2,16 @@
 start_date: '2015-04-25'
 end_date:   '2015-05-31'
 
-# bbox: '-105.3424072,39.946595,-105.1872253,40.0938316'
+#BBox information
+poly: '/home/osm/nepal/nepal.poly'
 
 #User Information
 title: 'Nepal Earthquake'
 email: 'jennings.anderson@colorado.edu'
 
 #Database & IO Configuration
-database: 'nepal-earthquake'
-write_directory: '/data/www/nepal-live'
+database: 'nepal-full'
+write_directory: '/data/www/nepal-full'
 
 tag_search_term: nepal
 changeset_tags_collection: true
