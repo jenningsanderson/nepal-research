@@ -2,8 +2,11 @@
 start_date: '2015-04-25'
 end_date:   '2015-05-31'
 
+# not_complete: true #If we enable this, it will only import data that's newish
+
 #BBox information
 poly: '/home/osm/nepal/nepal.poly'
+pbf_file_final: '/data/osm_files/splitter_exports/asia/nepal.osm.pbf'
 
 #User Information
 title: 'Nepal Earthquake'

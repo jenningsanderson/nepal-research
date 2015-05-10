@@ -1,3 +1,0 @@
-0,5,10,15,20,30,35,40,45,50,55 * * * * /home/osm/nepal-earthquake/nepal_db.cron.sh > /home/osm/log/nepal_db_cron.log
-0,10,20,30,40,50 * * * * /home/osm/nepal-earthquake/nepal_questions.cron.sh > /home/osm/log/nepal_questions_cron.log
-*/7 * * * * /home/osm/nepal-earthquake/fetch.sh > /home/osm/log/fetch.log
