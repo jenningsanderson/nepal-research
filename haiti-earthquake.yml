@@ -1,0 +1,28 @@
+#Analysis Window Information
+#This is the analysis window information for the Haiti Earthquake Database
+start_date: '2010-01-10'
+end_date:   '2010-01-24'
+
+#User Information
+title: 'CSCW 2016: Haiti Earthquake'
+email: 'jennings.anderson@colorado.edu'
+
+#Database & IO Configuration
+database: 'haiti-earthquake'
+write_directory: '/data/www/haiti-earthquake'
+
+
+
+
+# User Questions:
+# - new_user_count
+# - experienced_user_count
+# - total_user_count			 #These are cumulative, but the database needs to be be updated
+
+# Changeset Questions:
+# - changesets_x_hour 		     #This is cumulative -- but the database is incomplete
+
+# Way Questions:
+# - number_of_ways_per_tag
+# - number_of_buildings_per_tag
+# - number_of_highways_per_tag
