@@ -1,0 +1,1 @@
+print(db.changesets.count({pbf:true}), db.changesets.count({pbf:{$ne:true}}), db.changesets.count({complete: true}))
