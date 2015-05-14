@@ -3,8 +3,8 @@
 # start_date: '2010-01-10'
 # end_date:   '2010-01-24'
 
-start_date: '2010-01-14'
-end_date:   '2010-01-16'
+start_date: '2010-01-10'
+end_date:   '2010-01-24'
 
 #User Information
 title: 'CSCW 2016: Haiti Earthquake'
@@ -30,7 +30,10 @@ Network Questions:
 #     files: '/data/www/haiti-earthquake/overlapping_changesets'
 
 - intersecting_roads:
-    step: 4
-    unit: hour
+    step: 1
+    unit: day
     files: '/data/www/haiti-networks/intersecting_ways'
     constraints: {'version': 1, 'tags.highway' : {'$ne' : null}}
+
+
+
