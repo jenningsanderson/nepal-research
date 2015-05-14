@@ -8,6 +8,10 @@ www: '/data/www/haiti-networks'
 ---
 
 ##Interesecting Roads Network
+Each node is a user (experienced user is blue, new user is orange).  Users are connected via a directed edge if the source user created a **new road** which intersects with exactly **1 node** with an existing road which the target user created.
+
+The size of the nodes is a function of how many new roads that user created during that time.  The size of the edge is determined by the number of new roads which meet the edge criteria between those two users.
+
 ```
 var options = {
 				title: 'network test',
