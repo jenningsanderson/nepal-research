@@ -12,7 +12,7 @@ email: 'jennings.anderson@colorado.edu'
 
 #Database & IO Configuration
 database: 'haiti-earthquake'
-write_directory: '/data/www/haiti-earthquake'
+write_directory: '/data/www/haiti-networks'
 
 
 User Questions:
@@ -32,5 +32,5 @@ Network Questions:
 - intersecting_roads:
     step: 4
     unit: hour
-    files: '/data/www/haiti-earthquake/intersecting_ways'
+    files: '/data/www/haiti-networks/intersecting_ways'
     constraints: {'version': 1, 'tags.highway' : {'$ne' : null}}

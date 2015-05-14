@@ -4,7 +4,7 @@ title: '2010 Haiti Earthquake - Networks'
 
 ###Where the data live
 baseurl: '../'
-www: '/data/www/haiti-earthquake'
+www: '/data/www/haiti-networks'
 ---
 
 Network:
@@ -12,7 +12,7 @@ Network:
 ```
 var options = {
 				title: 'network test',
-				path:  '/haiti-earthquake/intersecting_ways/'
+				path:  '/haiti-networks/intersecting_ways/'
 			  }
 
 ```
