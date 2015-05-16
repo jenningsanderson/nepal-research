@@ -14,10 +14,30 @@ The size of the nodes is a function of how many new roads that user created duri
 
 ```
 var options = {
-				title: 'network test',
-				path:  '/haiti-networks/intersecting_ways/'
+				title: 'Interseting Ways Network',
+				id: 'intersectingways',
+				path:  '/haiti-networks/intersecting_ways/',
+				network: {directed:true}
 			  }
 
 ```
+
+{{ osmviz.network('dynamic_choice', options) }}
+
+
+```
+var options = {
+				title: 'Overlapping Changesets Network',
+				id: 'overlappingchangesets',
+				path:  '/haiti-networks/overlapping_changesets/',
+				network: {directed:false}
+			  }
+
+```
+
+##Overlapping Changeset Network
+Each node is a user (experienced user is blue, new user is orange).  
+Users are connected if their changesets geographically overlap eachother.
+
 
 {{ osmviz.network('dynamic_choice', options) }}

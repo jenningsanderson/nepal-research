@@ -24,14 +24,14 @@ Changeset Questions:
 - changesets_x_hour
 
 Network Questions:
-# - overlapping_changesets:
-#     step: 8
-#     unit: hour
-#     files: '/data/www/haiti-earthquake/overlapping_changesets'
+- overlapping_changesets:
+    step: 8
+    unit: hour
+    files: '/data/www/haiti-networks/overlapping_changesets'
 
 - intersecting_roads:
-    step: 1
-    unit: day
+    step: 8
+    unit: hour
     files: '/data/www/haiti-networks/intersecting_ways'
     constraints: {'version': 1, 'tags.highway' : {'$ne' : null}}
 
